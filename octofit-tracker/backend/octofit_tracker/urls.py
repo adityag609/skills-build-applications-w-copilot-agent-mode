@@ -34,5 +34,5 @@ def api_root(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', api_root, name='api_root'),
-    # path('api/', include('octofit_tracker.api_urls')), # Add this when api_urls.py is ready
+    path('api/', include('octofit_tracker.api_urls')),
 ]
