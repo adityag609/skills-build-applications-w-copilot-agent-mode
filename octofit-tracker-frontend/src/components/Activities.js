@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// Dummy change for commit test
 
 const Activities = () => {
   const codespace = process.env.REACT_APP_CODESPACE_NAME;
