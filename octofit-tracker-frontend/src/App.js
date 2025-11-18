@@ -1,19 +1,25 @@
-
+import React from 'react';
 import './App.css';
-import { NavLink, Routes, Route } from 'react-router-dom';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
+import { NavLink, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">OctoFit Tracker</NavLink>
-          <div className="collapse navbar-collapse">
+          <NavLink className="navbar-brand fw-bold d-flex align-items-center" to="/">
+            <img src={process.env.PUBLIC_URL + '/logo192.png'} alt="OctoFit Logo" className="octofit-logo" />
+            OctoFit Tracker
+          </NavLink>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item"><NavLink className="nav-link" to="/activities">Activities</NavLink></li>
               <li className="nav-item"><NavLink className="nav-link" to="/leaderboard">Leaderboard</NavLink></li>
@@ -31,7 +37,21 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<h2>Welcome to OctoFit Tracker!</h2>} />
+          <Route path="/" element={
+            <div className="card mt-4">
+              <div className="card-body">
+                <h2 className="card-title text-center">Welcome to <span className="text-primary">OctoFit Tracker</span>!</h2>
+                <p className="card-text text-center">Track your fitness, join teams, and compete on the leaderboard.</p>
+                <div className="d-flex justify-content-center">
+                  <NavLink to="/activities" className="btn btn-primary mx-2">View Activities</NavLink>
+                  <NavLink to="/leaderboard" className="btn btn-success mx-2">Leaderboard</NavLink>
+                  <NavLink to="/teams" className="btn btn-info mx-2">Teams</NavLink>
+                  <NavLink to="/users" className="btn btn-warning mx-2">Users</NavLink>
+                  <NavLink to="/workouts" className="btn btn-secondary mx-2">Workouts</NavLink>
+                </div>
+              </div>
+            </div>
+          } />
         </Routes>
       </div>
     </div>

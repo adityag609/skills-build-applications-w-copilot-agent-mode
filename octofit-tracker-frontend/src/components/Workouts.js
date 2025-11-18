@@ -18,13 +18,30 @@ const Workouts = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Workouts</h2>
-      <ul>
-        {workouts.map((workout, idx) => (
-          <li key={idx}>{workout.name} - {workout.difficulty}</li>
-        ))}
-      </ul>
+    <div className="card mt-4">
+      <div className="card-body">
+        <h2 className="card-title text-secondary">Workouts</h2>
+        <table className="table table-striped table-bordered mt-3">
+          <thead className="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Difficulty</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workouts.map((workout, idx) => (
+              <tr key={idx}>
+                <td>{idx + 1}</td>
+                <td>{workout.name}</td>
+                <td>{workout.description}</td>
+                <td>{workout.difficulty}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
